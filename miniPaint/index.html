@@ -27,6 +27,8 @@
     <script>
         const tela = document.getElementById("tela");
         const ctx = tela.getContext("2d");
+        ctx.fillStyle = "white"; // Declara o fundo com a cor branca
+        ctx.fillRect(0, 0, tela.width, tela.height); // Limpar
 
         let desenhando = false;
 
@@ -51,7 +53,15 @@
         limpar.onclick = () => {
             ctx.clearRect(0, 0, tela.width, tela.height);
         };
-        //Desafio: criar função para exportar e corrigir limpar completamente
+
+        exportar.onclick = () => {
+        const link = document.createElement("a"); // Cria a tag <a>
+        link.download = "MiniPaint.png";
+        link.href = tela.toDataURL();
+        link.click();
+    } 
+    
+    //Desafio: criar função para exportar e corrigir limpar completamente
     
     </script>
 </body>
